@@ -1,0 +1,17 @@
+{
+    "name": "doyzheng/yii2-generator",
+    "authors": [
+        {
+            "name": "doyzheng",
+            "email": "doyzheng@qq.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "doyzheng\\generators\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=5.5.0"
+    }
+}
