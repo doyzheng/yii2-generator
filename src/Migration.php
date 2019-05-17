@@ -50,7 +50,7 @@ class Migration
     public function batchGenerator($tables = [])
     {
         if (empty($tables)) {
-            $tables = $this->getTables();
+            $tables = Util::getDbTables();
         }
         foreach ($tables as $table) {
             $this->generator($table);
@@ -96,25 +96,6 @@ class Migration
         } catch (\Exception $exception) {
         }
         return false;
-    }
-    
-    /**
-     * 获取全部数据表
-     * @return array
-     */
-    private function getTables()
-    {
-        static $tables = [];
-        if (empty($tables)) {
-            try {
-                $list = Yii::$app->db->createCommand('SHOW tables')->queryAll();
-                foreach ($list as $item) {
-                    $tables[] = array_pop($item);
-                }
-            } catch (\Exception $exception) {
-            }
-        }
-        return $tables;
     }
     
     /**
@@ -172,5 +153,5 @@ class Migration
         }
         return $columns;
     }
- 
+    
 }
